@@ -5,6 +5,7 @@
 //     protected $balance;
 
 //     //getter:-to get the value of a private or protected field - method
+
 //     public function getAccountNo(){
 //         return $this->accountNo;
 //     }
@@ -13,6 +14,7 @@
 //        return $this->balance;
 //     }
 //     //setter:-to set the value of a private or protected field -method
+
 //     public function setAccountNo($accountNo){
 //         $this->accountNo=$accountNo;
 //     }
@@ -54,42 +56,83 @@
 // $obj=new B();
 // $obj->displayy();
 
-class UserProfile{
-    public $username;
-    private $pinCode;
 
-    public function __construct($username,$pinCode)
-    {
-       $this->username=$username;
-       $this->pinCode=$pinCode;
-    }
+//## The Challenge: Profile Security Lock
 
-    public function updatePin($oldPin,$newPin){
-        if($oldPin==$this->pinCode){
-            $this->pinCode=$newPin;
-            echo "Pin Updated Successfully"."\n";
-        }else{
+// Write a short PHP script to manage a user profile. Your code must use one single class and show how private properties protect data while still being accessible inside the class.
 
-            echo "Access Denied:Wrong old PIN!"."\n";
-        }
+// ## Structural Requirements
 
-    }
+//    1. The Class: UserProfile
+//    * Properties:
+//       * public $username
+//          * private $pinCode
+//       * Constructor: Initialize both the $username and $pinCode when the profile is created.
+//       * Methods:
+//       * public function updatePin($oldPin, $newPin): Check if $oldPin matches the current private $pinCode. If it matches, update the $pinCode to $newPin and echo "PIN updated successfully!". If it does not match, echo "Access Denied: Wrong old PIN!".
+//          * public function showProfile(): Echo the $username and the private $pinCode together.
+      
+// ## Execution Scenario to Test
 
-    public function showProfile(){
-            echo $this->username."\n";
-            echo $this->pinCode."\n";
-        }
-}
+// • Create a new UserProfile object (e.g., username: "Ayush", PIN: 1234).
+// • Try to change $pinCode directly from outside the class (e.g., $user->pinCode = 9999;) to see PHP block it with an error.
+// • Call updatePin() with the wrong old PIN to test the rejection.
+// • Call updatePin() with the correct old PIN to successfully change it.
+// • Call showProfile() to verify the new PIN is saved and displayed.
 
-$user=new UserProfile("Ayush","1234");
+// class UserProfile{
+//     public $username;
+//     private $pinCode;
 
-//$user->pinCode=9999;
+//     public function __construct($username,$pinCode)
+//     {
+//        $this->username=$username;
+//        $this->pinCode=$pinCode;
+//     }
 
-$user->updatePin("2589","5683");
+//     public function updatePin($oldPin,$newPin){
+//         if($oldPin==$this->pinCode){
+//             $this->pinCode=$newPin;
+//             echo "Pin Updated Successfully"."\n";
+//         }else{
 
-$user->updatePin("1234","5683");
+//             echo "Access Denied:Wrong old PIN!"."\n";
+//         }
 
-echo $user->showProfile();
+//     }
+
+//     public function showProfile(){
+//             echo $this->username."\n";
+//             echo $this->pinCode."\n";
+//         }
+// }
+
+// $user=new UserProfile("Ayush","1234");
+
+// //$user->pinCode=9999;
+
+// $user->updatePin("2589","5683");
+
+// $user->updatePin("1234","5683");
+
+// echo $user->showProfile();
 
 
+//WAP for private and protected fileds and also take a private function
+
+// class Emp{
+//     private $sal;
+//     protected $emp_details;
+
+//     private function empsal($sal){
+//         $this->sal=$sal;
+//     }
+// }
+// class details extends Emp{
+//     public function empdet($sal){
+//         parent::empsal($sal);
+//     }
+
+
+// }
 ?>

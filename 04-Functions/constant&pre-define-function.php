@@ -14,7 +14,7 @@ const APP_VERSION = "V.0.2.4";
 //pre_define_function for Strings :-
 // $name = "kaif shaikh";
 // echo $name[2] ."\n";   //Gives the letter according to the index number
-// echo strlen($name) ."\n"; //Give the length ni. of the string.
+// echo strlen($name) ."\n"; //Gives the length no. of the string.
 // echo str_word_count($name) ."\n"; //Give the no. of words count.
 // echo strtoupper($name) ."\n"; //Gives the string in UPPERCASE.
 // echo strtolower($name) ."\n"; //Gives the string in lowercase.
