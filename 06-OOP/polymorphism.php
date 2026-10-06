@@ -1,36 +1,36 @@
 <?php
-// class Animal{
-//     public function sound(){
-//         echo "Animal makes a sound"."\n";
-//     }
-// }
-// class Dog extends Animal{
-//     public function sound(){
-//         echo "Dog is barking"."\n";
-//     }
-// }
-// class Cat extends Animal{
-//     public function sound(){
-//         echo "Cat says Meow !!"."\n";
-//     }
-// }
+class Animal{
+    public function sound(){
+        echo "Animal makes a sound"."\n";
+    }
+}
+class Dog extends Animal{
+    public function sound(){
+        echo "Dog is barking"."\n";
+    }
+}
+class Cat extends Animal{
+    public function sound(){
+        echo "Cat says Meow !!"."\n";
+    }
+}
 
-//  function makeSound(Animal $animal){
-//     $animal->sound();
-// }
+ function makeSound(Animal $animal){
+    $animal->sound();
+}
 
-//  $animal=new Animal();
-// // $animal->sound();
+ $animal=new Animal();
+// $animal->sound();
 
-// $dog=new Dog();
-// $dog->sound();
+$dog=new Dog();
+$dog->sound();
 
-// $cat=new Cat();
-// $cat->sound();
+$cat=new Cat();
+$cat->sound();
 
-// makeSound($animal);
-// makeSound($dog);
-// makeSound($cat);
+makeSound($animal);
+makeSound($dog);
+makeSound($cat);
 
 //Scenario:
 // You are building a minimalist backend processing engine for a shopping cart. The 
