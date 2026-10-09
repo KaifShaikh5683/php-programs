@@ -230,85 +230,222 @@
 // $app_user->otp_input=159357;
 // LogINOUT($app_user);
 
-abstract class Apps{
+// abstract class Apps{
 
-public $input = [];
+// public $input = [];
 
-public function logout(){
-    echo "Click on Logout button to Logout\n";
-}
-abstract public function credentials();
-}
+// public function logout(){
+//     echo "Click on Logout button to Logout\n";
+// }
+// abstract public function credentials();
+// }
 
-class Linkedin extends Apps {
+// class Linkedin extends Apps {
 
-    public $credentials = [
-        "username" => "Tanishka",
-        "password" => 12345
-    ];
+//     public $credentials = [
+//         "username" => "Tanishka",
+//         "password" => 12345
+//     ];
 
-    public $input = [];
+//     public $input = [];
 
-    public function credentials() {
+//     public function credentials() {
         
-        echo "Username: " . $this->input["username"] . "\n";
-        echo "Password: " . $this->input["password"] . "\n";
+//         echo "Username: " . $this->input["username"] . "\n";
+//         echo "Password: " . $this->input["password"] . "\n";
 
     
-        if($this->input == $this->credentials){
-            echo "LinkedIn Login Successful\n";
-            $this->logout();
-        }else{
-            "Invalid Username or Password\n";
+//         if($this->input == $this->credentials){
+//             echo "LinkedIn Login Successful\n";
+//             $this->logout();
+//         }else{
+//             "Invalid Username or Password\n";
             
-    }
+//     }
     
-}
-}
+// }
+// }
 
-class WhatsApp extends Apps {
+// class WhatsApp extends Apps {
 
-    public $credentials = [
-        "phone" => 84214907919,
-        "otp" => 150357
-    ];
+//     public $credentials = [
+//         "phone" => 84214907919,
+//         "otp" => 150357
+//     ];
 
-    public $input = [];
+//     public $input = [];
 
-     public function credentials() {
+//      public function credentials() {
 
-        echo "WhatsApp Login\n";
+//         echo "WhatsApp Login\n";
 
-        echo "Phone: " . $this->input["phone"] . "\n";
-        echo "OTP: " . $this->input["otp"] . "\n";
+//         echo "Phone: " . $this->input["phone"] . "\n";
+//         echo "OTP: " . $this->input["otp"] . "\n";
 
-        if($this->input == $this->credentials){
-            echo "WhatsApp Login Successful\n";
-            $this->logout();
-         }else{
-            echo "Invalid Phone Number or OTP\n";
+//         if($this->input == $this->credentials){
+//             echo "WhatsApp Login Successful\n";
+//             $this->logout();
             
-         }
+//          }else{
+//             echo "Invalid Phone Number or OTP\n";
+            
+//          }
+//     }
+// }
+
+// function log_in_out(Apps $apps){
+//     $apps->credentials();
+// }
+
+// $linkedin = new Linkedin();
+
+// $linkedin->input["username"] = "Tanishka";
+// $linkedin->input["password"] = 12345;
+
+
+// $whatsapp = new WhatsApp();
+
+// $whatsapp->input["phone"] =  84214907919;
+// $whatsapp->input["otp"] = 150357;
+
+// log_in_out($linkedin);
+// echo "\n";
+// log_in_out($whatsapp);
+
+// class A{
+
+// public function example(){
+//     echo "Hi";
+// }
+// }
+
+// abstract class B extends A{
+//     abstract public function b();
+// }
+
+// $a=new A();
+// $a->example();
+// $b=new B();   //you cannot call an abstract class or create an object of it.
+// $b->b();
+
+//Interface : -
+
+// interface Payment{
+//     public function pay();
+// }
+
+// interface CardPayment{
+//     public function payment();
+// }
+
+// class UPI implements Payment , CardPayment{
+
+//     public function pay(){
+//         echo "Payment through UPI\n";
+//     }
+    
+//     public function payment(){
+//         echo "Payment must be Online\n";
+//     }
+// }
+// $user=new UPI();
+// $user->payment();
+// $user->pay();
+
+// interface Android{
+//     public function ram();
+//     public function storage();
+//     public function camera();
+//     public function processor();
+// }
+
+// interface IOS{
+//     public function ram();
+//     public function storage();
+//     public function camera();
+//     public function processor();
+// }
+
+// class SamasungS26 implements Android{
+//     public function ram(){
+//         echo "Samsung S26 Ultra : \n";
+//         echo "It has a 12gb RAM\n";
+//     }
+
+//     public function storage(){
+//         echo "It has a 550gb Storage\n";
+//     }
+
+//     public function camera(){
+//         echo "It has a 100 Megapixel Camera\n";
+//     }
+
+//     public function processor(){
+//         echo "It has a Snapdragon processor\n";
+//     }
+// }
+
+// class Iphone11 implements IOS{
+//     public function ram(){
+//         echo "Iphone 11 : \n";
+//         echo "It has a 4gb RAM\n";
+//     }
+
+//     public function storage(){
+//         echo "It has a 128gb Storage\n";
+//     }
+
+//     public function camera(){
+//         echo "It has a 50 Megapixel Camera\n";
+//     }
+
+//     public function processor(){
+//         echo "It has a Bionic 13 processor\n";
+//     }
+// }
+
+// $samsung=new SamasungS26();
+// $samsung->ram();
+// $samsung->storage();
+// $samsung->processor();
+// $samsung->camera();
+
+// echo "\n";
+
+// $apple=new Iphone11();
+// $apple->ram();
+// $apple->storage();
+// $apple->processor();
+// $apple->camera();
+
+interface Login{
+
+    public function credential();
+
+}
+
+interface Logout{
+
+    public function logout();
+} 
+
+class Instagram implements Login,Logout{
+    
+    public function credential()
+    {
+        echo "Enter Your Username and Password\n";
+        echo "Username : k_a_i_f__0\n";
+        echo "Password : 12345678\n";
+        echo "Successfully Logged In\n";
+    }
+
+     public function logout()
+    {
+        echo "You can Logout after the seesion/n";
     }
 }
 
-function log_in_out(Apps $apps){
-    $apps->credentials();
-}
-
-$linkedin = new Linkedin();
-
-$linkedin->input["username"] = "Tanishka";
-$linkedin->input["password"] = 12345;
-
-
-$whatsapp = new WhatsApp();
-
-$whatsapp->input["phone"] =  84214907919;
-$whatsapp->input["otp"] = 150357;
-
-log_in_out($linkedin);
-echo "\n";
-log_in_out($whatsapp);
-
+$user=new Instagram();
+$user->credential();
+$user->logout();
 ?>
